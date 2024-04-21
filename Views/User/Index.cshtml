@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Database_First.Models.T_Users>
+
+@{
+    ViewBag.Title = "لیست کابران سایت";
+}
+
+<h2>نمایش لیست کاربران</h2>
+
+<p>
+    @Html.ActionLink("درج کاربر جدید", "Create", null, new { @class = "btn btn-success btn-xs" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Family)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>*@
+
+        @*<th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.Marital)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/images/user_images/@item.ImageName" class="img100" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Family)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>*@
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Marital)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterDate)
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new
+                {
+                     id = item.UserId
+                }, new { @class = "btn btn-warning btn-xs" }) |
+                @Html.ActionLink("جزئیات", "Details", new
+               {
+                   id = item.UserId
+               }, new { @class = "btn btn-info btn-xs" }) |
+                @Html.ActionLink("حذف", "Delete", new
+           {
+               id = item.UserId
+           }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,104 @@
+﻿@model Database_First.Models.T_Users
+
+@{
+    ViewBag.Title = $"اطلاعات کاربر {@Html.DisplayFor(model => model.Family)}";
+}
+
+<h2>اطلاعات @Html.DisplayFor(model => model.Family)</h2>
+<hr />
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Family)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Family)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marital)
+        </dd>
+
+        <dt>
+            وضعیت
+        </dt>
+
+        <dd>
+            @if (Model.IsActive)
+            {
+                <span style="color: green; font-size: large; font-weight: bold">فعال</span>
+            }
+            else
+            {
+                <span style="color: darkgray;font-size: large; font-weight: bold">غیرفعال</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.UserId },new{@class= "btn btn-warning btn-xs" }) |
+    @Html.ActionLink("برگشت به لیست", "Index",null,new{@class="btn btn-info btn-xs"})
+</p>
